@@ -13,22 +13,8 @@ function file_access($file){
 			'image/gif',
 			'image/png'
 		);
-		$allowedExts = array(
-			"pdf", 
-			"doc", 
-			"docx",
-			"xls",
-			"xlsx",
-			"csv",
-			"jpg",
-			"jpeg",
-			"png",
-			"gif"		
-		); 
 		$extension = end(explode(".", $_FILES["file"]["name"]));
 		if(($file['size'] >= $maxsize) || ($file["size"] == 0)) {
-			return false;
-		}else if ( ! ( in_array($extension, $allowedExts ) ) ) {
 			return false;
 		}else if(!in_array($file['type'], $acceptable)) && (!empty($file["type"]))) {
 			return false;
